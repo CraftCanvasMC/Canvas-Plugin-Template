@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id("io.papermc.paperweight.userdev") version "1.5.5"
+    id("xyz.jpenilla.run-paper") version "2.2.0"
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+group = 'me.dueris'
+version = '1.0'
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'canvas-example'
+            from components.java
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://s01.oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT", "io.github.dueris")
+    implementation("io.github.dueris:dev-bundle:1.20.2-R0.1-SNAPSHOT")
+}
+
+tasks {
+    assemble {
+        dependsOn(reobfJar)
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

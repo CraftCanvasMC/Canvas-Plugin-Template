@@ -1,0 +1,10 @@
+name: CanvasExample
+version: '${version}'
+main: me.dueris.canvas.CanvasExample.java
+api-version: '1.20'
+authors: [ Dueris ]
+folia-supported: false
+description: Your description
+website: https://ko-fi.com/dueris
+prefix: CanvasExample
+load: POSTWORLD

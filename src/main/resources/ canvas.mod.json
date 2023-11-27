@@ -1,0 +1,12 @@
+{
+    "id": "canvas-example",
+    "version": "1.0",
+    "entry": "me.dueris.canvas.CanvasExample",
+    "dependencies": [
+      "ignite"
+    ],
+    "mixins": [
+      "canvas.mixin.common.json"
+    ]
+  }
+  
