@@ -7,12 +7,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Main.class)
+    // Specifies the class to mixin into
 public class ExampleMixin {
     @Inject(method = "main", at = @At("RETURN"))
+    // Specifies what method to inject into
     private static void injectT(String[] args, CallbackInfo ci){
-        //start copying the jar
-        System.out.println("Hello from Canvas!!!");
-
-        //run the rest of the mc code...
+        System.out.println("Hello from Canvas!");
     }
 }
