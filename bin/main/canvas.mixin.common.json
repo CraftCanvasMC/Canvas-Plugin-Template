@@ -1,8 +1,0 @@
-{
-    "required": true,
-    "package": "me.dueris.canvas.mixin",
-    "mixins": [
-      "ExampleMixin"
-    ]
-  }
-  

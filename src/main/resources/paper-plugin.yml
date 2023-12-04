@@ -1,6 +1,6 @@
 name: CanvasExample
 version: '${version}'
-main: me.dueris.canvas.CanvasExample.java
+main: me.dueris.canvas.CanvasExample
 api-version: '1.20'
 authors: [ Dueris ]
 folia-supported: false
@@ -8,3 +8,4 @@ description: Your description
 website: https://ko-fi.com/dueris
 prefix: CanvasExample
 load: POSTWORLD
+bootstrapper: me.dueris.canvas.registry.Bootstrap

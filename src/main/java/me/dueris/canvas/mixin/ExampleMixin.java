@@ -6,12 +6,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Main.class)
-    // Specifies the class to mixin into
+@Mixin(targets = "org.bukkit.craftbukkit.Main")
 public class ExampleMixin {
-    @Inject(method = "main", at = @At("RETURN"))
+    @Inject(method = "main", at = @At("HEAD"))
     // Specifies what method to inject into
-    private static void injectT(String[] args, CallbackInfo ci){
-        System.out.println("Hello from Canvas!");
+    private static void injectT(String[] args, CallbackInfo ci) {
+        System.out.println("loL");
     }
 }

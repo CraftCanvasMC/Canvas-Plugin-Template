@@ -1,0 +1,11 @@
+{
+  "id": "canvas-example",
+  "version": "1.0",
+  "dependencies": [
+    "ignite"
+  ],
+  "mixins": [
+    "mixin.example.core.json"
+  ]
+}
+  

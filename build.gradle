@@ -1,8 +1,8 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id("io.papermc.paperweight.userdev") version "1.5.5"
-    id("xyz.jpenilla.run-paper") version "2.2.0"
+    id("io.papermc.paperweight.userdev") version "1.5.10"
+    id("xyz.jpenilla.run-paper") version "2.2.2"
 }
 
 apply plugin: 'java'
@@ -10,17 +10,10 @@ apply plugin: 'maven-publish'
 group = 'me.dueris'
 version = '1.0'
 
-publishing {
-    repositories {
-        mavenLocal()
-    }
-    publications {
-        maven(MavenPublication) {
-            artifactId = 'canvas-example'
-            from components.java
-        }
-    }
+java {
+  toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
+
 
 repositories {
     mavenCentral()
@@ -43,6 +36,19 @@ tasks {
     assemble {
         dependsOn(reobfJar)
     }
+
+    compileJava {
+        // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
+        // See https://openjdk.java.net/jeps/247 for more information.
+        options.release.set(17)
+    }
+    /*
+    reobfJar {
+        // This is an example of how you might change the output location for reobfJar. It's recommended not to do this
+        // for a variety of reasons, however it's asked frequently enough that an example of how to do it is included here.
+        outputJar.set(layout.buildDirectory.file("libs/PaperweightTestPlugin-${project.version}.jar"))
+    }
+    */
 }
 
 processResources {
