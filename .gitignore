@@ -1,9 +1,4 @@
-/standalone/.gradle/
-/standalone/build/
 /.idea/
 /.gradle/
-/gradle/
-/bundled/.gradle/
-/bundled/build/
 /build/
 ./.gitpod.yml
