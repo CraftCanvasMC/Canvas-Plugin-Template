@@ -25,11 +25,24 @@ repositories {
         name = "sonatype"
         url = "https://s01.oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        url = uri("https://repo.spongepowered.org/maven/")
+    }
+    maven {
+        url = uri("https://files.minecraftforge.net/maven/")
+    }
+    maven {
+        url = uri("https://maven.fabricmc.net/")
+    }
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT", "io.github.dueris")
-    implementation("io.github.dueris:dev-bundle:1.20.2-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT", "io.github.dueris")
+    implementation("io.github.dueris:dev-bundle:1.20.4-R0.1-SNAPSHOT")
+    implementation("org.spongepowered:configurate-hocon:4.2.0-SNAPSHOT")
+    implementation("org.spongepowered:configurate-gson:4.2.0-SNAPSHOT")
+    implementation("net.fabricmc:access-widener:2.1.0")
+    implementation("net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5")
 }
 
 tasks {

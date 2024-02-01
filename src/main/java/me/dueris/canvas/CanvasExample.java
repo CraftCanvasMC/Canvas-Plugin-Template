@@ -4,37 +4,28 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class CanvasExample extends JavaPlugin implements Listener{
+/**
+ * This is the main instance of your plugin.
+ * This class represents everything about your plugin, from its logger
+ * to the methods that turn it on and off.
+ */
+public class CanvasExample extends JavaPlugin implements Listener {
 
     @Override
+    /**
+     * This is the onEnable method for your plugin, upon the server starting,
+     * your plugin will be loaded and this method will be called.
+     */
     public void onEnable(){
-        // OnEnable
-        String msg = "Hello world!";
-        System.out.println(msg);
-        sendBase64Message(msg);
-        sendEncryptedMessage(msg, "AES");
+        // Plugin enable
     }
 
     @Override
+    /**
+     * This is the onDisable method for your plugin, upon the server shutting down,
+     * your plugin will be disabled and this method will be called.
+     */
     public void onDisable(){
-        // OnDisable
-    }
-
-    // Prints a string message in a base64 encryption
-    public void sendBase64Message(String msg){
-        System.out.println(
-            Bukkit.getServer().getObfuscator().encodeBase64(msg)
-        );
-    }
-
-    // Prints a String message in an encryption method of your choice
-    public void sendEncryptedMessage(String msg, String encryptionMethod){ // Encryption method being like AES, RSA, SHA, or TLS
-        System.out.println(
-            Bukkit.getServer().getObfuscator().encrypt(
-                msg,
-                Bukkit.getServer().getObfuscator().generateEncryptionKey(encryptionMethod),
-                encryptionMethod
-            )
-        );
+        // Plugin disable
     }
 }
