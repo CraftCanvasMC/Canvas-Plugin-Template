@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id("io.papermc.paperweight.userdev") version "1.5.10"
+    id("io.papermc.paperweight.userdev") version "1.7.1"
     id("xyz.jpenilla.run-paper") version "2.2.2"
 }
 
@@ -11,7 +11,7 @@ group = 'me.dueris'
 version = '1.0'
 
 java {
-  toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+  toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 
@@ -23,7 +23,7 @@ repositories {
     }
     maven {
         name = "sonatype"
-        url = "https://s01.oss.sonatype.org/content/groups/public/"
+        url = "https://s01.oss.sonatype.org/content/repositories/snapshots"
     }
     maven {
         url = uri("https://repo.spongepowered.org/maven/")
@@ -37,8 +37,8 @@ repositories {
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT", "io.github.dueris")
-    implementation("io.github.dueris:dev-bundle:1.20.4-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.21-R0.1-SNAPSHOT", "io.github.dueris")
+    implementation("io.github.dueris:dev-bundle:1.21-R0.1-SNAPSHOT")
     implementation("org.spongepowered:configurate-hocon:4.2.0-SNAPSHOT")
     implementation("org.spongepowered:configurate-gson:4.2.0-SNAPSHOT")
     implementation("net.fabricmc:access-widener:2.1.0")
@@ -53,15 +53,8 @@ tasks {
     compileJava {
         // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
         // See https://openjdk.java.net/jeps/247 for more information.
-        options.release.set(17)
+        options.release.set(21)
     }
-    /*
-    reobfJar {
-        // This is an example of how you might change the output location for reobfJar. It's recommended not to do this
-        // for a variety of reasons, however it's asked frequently enough that an example of how to do it is included here.
-        outputJar.set(layout.buildDirectory.file("libs/PaperweightTestPlugin-${project.version}.jar"))
-    }
-    */
 }
 
 processResources {
